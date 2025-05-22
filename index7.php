@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "hotel");
+$conn = new mysqli("localhost", "root", "root", "miranda_backend_sql");
 
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
