@@ -1,23 +1,57 @@
 /**
-index8.php - Mostrar un formulario (method=”POST” y sin action) para crear una nueva habitación. 
+index8.php - Mostrar un formulario (method=”POST” y sin action) para crear una nueva habitación.
 Si accedes a la página con una peticion POST, mostrar la habitación nueva con el código de index4.php
 
 */
 
-<form method="POST">
+
+
+<?php
+
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']);
+
+    $json = file_get_contents('rooms.json');
+    $rooms = json_decode($json, true);
+
+    $found = false;
+
+
+    echo '<form method="POST">
     <label>Nombre:</label><br>
     <input type="text" name="name"><br>
     <label>Descripción:</label><br>
     <textarea name="description"></textarea><br>
     <input type="submit" value="Crear Habitación">
-</form>
+    </form>';
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["roomType"];
-    $desc = $_POST["amenities"];
 
-    echo "<h2>" . htmlspecialchars($name) . "</h2>";
-    echo "<p>" . htmlspecialchars($desc) . "</p>";
+    foreach ($rooms as $room) {
+
+
+
+        if ($room['id'] === $id) {
+            echo "<h2>Habitación encontrada:</h2>";
+            echo "<p><strong>Nombre:</strong> " . htmlspecialchars($room['roomType']) . "</p>";
+            echo "<p><strong>Número:</strong> " . htmlspecialchars($room['roomNumber']) . "</p>";
+            echo "<p><strong>Precio:</strong> $" . htmlspecialchars($room['price']) . "</p>";
+            //  echo "<p><strong>Descuento:</strong> " . htmlspecialchars($room['offer_price']) . "%</p>";
+
+            if ($room['price'] > $room['offer_price']) {
+                $discount = 100 - ($room['offer_price'] / $room['price']) * 100;
+                echo "<p><strong>Descuento:</strong> " . round($discount) . "%</p>";
+            } else {
+                echo "<p><strong>Descuento:</strong> Sin descuento</p>";
+            }
+
+            $found = true;
+            break;
+        }
+    }
+
+    if (!$found) {
+        echo "<p>No se encontró ninguna habitación con ID = $id.</p>";
+    }
+} else {
+    echo "<p>Por favor proporciona un ID en la URL (por ejemplo: ?id=1).</p>";
 }
-?>

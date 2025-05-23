@@ -4,16 +4,19 @@ Se puede confirmar visitando index5.php
 
 */
 
-<form method="POST">
+
+
+<?php
+//$conn = new mysqli("localhost", "root", "root", "miranda_backend_sql");
+include 'sql_connection.php';
+
+echo '<form method="POST">
     <label>Nombre:</label><br>
     <input type="text" name="name"><br>
     <label>Descripción:</label><br>
     <textarea name="description"></textarea><br>
     <input type="submit" value="Crear Habitación">
-</form>
-
-<?php
-$conn = new mysqli("localhost", "root", "root", "miranda_backend_sql");
+</form>';
 
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
