@@ -1,3 +1,9 @@
+/**
+index8.php - Mostrar un formulario (method=”POST” y sin action) para crear una nueva habitación. 
+Si accedes a la página con una peticion POST, mostrar la habitación nueva con el código de index4.php
+
+*/
+
 <form method="POST">
     <label>Nombre:</label><br>
     <input type="text" name="name"><br>

@@ -1,3 +1,9 @@
+/**
+index9.php - Utilizar el mismo código de index8.php pero esta vez guardar la habitación nueva en la base de datos de MySQL. 
+Se puede confirmar visitando index5.php
+
+*/
+
 <form method="POST">
     <label>Nombre:</label><br>
     <input type="text" name="name"><br>

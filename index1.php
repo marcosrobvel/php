@@ -1,3 +1,9 @@
+/**
+index1.php - Crear un array en PHP conteniendo 3 habitaciones (cada una es un array asociativo). Cada habitación tiene 5 propiedades: ID, Name, Number, Price, Discount. Muestra el array entero dentro de una etiqueta <pre></pre>
+
+
+*/
+
 <?php
 $rooms = [
     [

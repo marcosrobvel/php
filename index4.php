@@ -1,3 +1,8 @@
+/**
+index4.php - Acceder la página con un query param (localhost:8000/index4.php?id=1). Leer el parámetro de GET, importar las habitaciones JSON, y buscar dentro del array para ver si hay una habitación con el mismo ID. Si hay una, mostrarla con las propiedades Name, Number, Price y Discount
+
+*/
+
 <?php
 
 if (isset($_GET['id'])) {
