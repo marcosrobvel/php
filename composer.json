@@ -1,0 +1,17 @@
+{
+    "name": "marcosrobvel/php",
+    "autoload": {
+        "psr-4": {
+            "Marcosrobvel\\Php\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "marcosrobvel",
+            "email": "marcosraranjuez@gmail.com"
+        }
+    ],
+    "require": {
+        "eftec/bladeone": "^4.18"
+    }
+}
