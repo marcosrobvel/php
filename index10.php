@@ -8,7 +8,6 @@ $cache = __DIR__ . '/blade/cache';
 
 $blade = new BladeOne($views, $cache, BladeOne::MODE_DEBUG);
 
-// Ruta correcta al JSON, ajusta si está en otra carpeta
 $jsonPath = __DIR__ . '/rooms.json';
 
 if (!file_exists($jsonPath)) {
